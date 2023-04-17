@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="box">
+    <p>Define password validation rules</p>
+    <ul>
+      <li>Min length: 8</li>
+      <li>Require uppercase: Yes</li>
+      <li>Require lowercase: Yes</li>
+      <li>Require numbers: Yes</li>
+      <li>Require symbols: Yes</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p>Generate random salt and master key</p>
+    <ul>
+      <li>Salt: 32-byte</li>
+      <li>Master key: 32-byte</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p>Generate commitment to user's password</p>
+    <ul>
+      <li>Password: MySecretPassword</li>
+      <li>Commitment: SHA-256 hash of salt + password</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p>Generate key pair for password manager</p>
+    <ul>
+      <li>Private key: x25519</li>
+      <li>Public key: Serialized and sent to user</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p>User sends challenge to password manager</p>
+  </div>
+  <div class="box">
+    <p>Password manager generates response to challenge</p>
+    <ul>
+      <li>Response: Generated using function with inputs of challenge, salt, password rules, commitment, master key, and password manager's private key</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p>Password manager sends response to user</p>
+  </div>
+  <div class="box">
+    <p>User verifies response using password manager's public key</p>
+    <ul>
+      <li>Inputs: Response, challenge, salt, password rules, and commitment</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p>If response is valid, password is deemed valid</p>
+  </div>
+</div>
